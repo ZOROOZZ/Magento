@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev libxslt-dev libicu-dev libcurl4-openssl-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql zip intl xsl curl soap gd bcmath opcache ftp sockets
+RUN apt-get update && apt-get install -y netcat-openbsd
+
 
 # Enable Apache rewrite module
 RUN a2enmod rewrite
