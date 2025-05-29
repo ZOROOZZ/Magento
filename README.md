@@ -24,7 +24,7 @@ cd Magento
 ---
 
 ## 2.Configure Credentials via .env File
-You can securely configure and manage your Magento project credentials by modifying the ```.env```file. This includes database access, admin account details, and Magento Marketplace keys, allowing you to customize your environment without altering the main setup script.
+You can securely configure and manage your Magento project credentials by modifying the ```.env```file. This includes database access, admin account details, and allowing you to customize your environment without altering the main setup script.
 ```bash
 DB_HOST=mysql
 DB_NAME=magento
