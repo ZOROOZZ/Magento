@@ -19,8 +19,11 @@ This repository provides a Dockerized setup to run Magento 2 with a single comma
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/magento-docker-setup.git
-cd magento-docker-setup
+git clone https://github.com/ZOROOZZ/Magento
+cd Magento
+docker-compose up -d --build
+bash setup.sh
+---
 2. Create and Configure .env File
 Copy the example and edit:
 
