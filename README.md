@@ -51,6 +51,7 @@ First-time setup requires Magento authentication keys.
 docker-compose up -d --build
 bash setup.sh
 ```
+Magento will be accessible at: http://localhost/
 ---
 ### 📁 Directory Structure
 ```bash
@@ -61,18 +62,9 @@ bash setup.sh
 ├── .env
 └── magento-app/       # Magento files will be installed here
 ```
-🧾 Notes
-First-time setup requires Magento authentication keys.
-
-Keys are saved in .env after the first prompt by setup.sh.
-
-Magento will be accessible at: http://localhost/
-
-🔒 Security Reminder
-Never commit your .env file or Magento keys to a public repository.
-
-### 👨‍💻 Maintainer
-Mehul Saini
+---
+## 👨‍💻 Maintainer
+### Mehul Saini
 
 ---
 
