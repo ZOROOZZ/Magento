@@ -34,10 +34,10 @@ Edit
 cp .env.example .env
 nano .env
 Required variables:
-
-env
-Copy
-Edit
+```
+3.Configure Credentials via .env File
+You can securely configure and manage your Magento project credentials by modifying the .env file. This includes database access, admin account details, and Magento Marketplace keys, allowing you to customize your environment without altering the main setup script.
+```bash
 MAGENTO_PUBLIC_KEY=
 MAGENTO_PRIVATE_KEY=
 
@@ -57,6 +57,9 @@ ADMIN_PASSWORD=admin123
 SEARCH_ENGINE=elasticsearch7
 ELASTICSEARCH_HOST=elasticsearch
 ELASTICSEARCH_PORT=9200
+```
+---
+```bash
 3. Make the Setup Script Executable
 bash
 Copy
