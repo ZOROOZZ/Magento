@@ -17,7 +17,7 @@ This repository provides a Dockerized setup to run Magento 2 with a single comma
 ## 🚀 Quick Start
 
 ### 1. Clone the Repository
-
+```bash
 git clone https://github.com/ZOROOZZ/Magento
 cd Magento
 docker-compose up -d --build
