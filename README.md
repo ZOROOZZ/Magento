@@ -16,26 +16,14 @@ This repository provides a Dockerized setup to run Magento 2 with a single comma
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
+## 1. Clone the Repository
 ```bash
 git clone https://github.com/ZOROOZZ/Magento
 cd Magento
-docker-compose up -d --build
-bash setup.sh
 ```
 ---
-```bash
-2. Create and Configure .env File
-Copy the example and edit:
 
-bash
-Copy
-Edit
-cp .env.example .env
-nano .env
-Required variables:
-```
-### 3.Configure Credentials via .env File
+## 2.Configure Credentials via .env File
 You can securely configure and manage your Magento project credentials by modifying the .env file. This includes database access, admin account details, and Magento Marketplace keys, allowing you to customize your environment without altering the main setup script.
 ```bash
 MAGENTO_PUBLIC_KEY=
@@ -83,4 +71,4 @@ Mehul Saini
 
 ---
 
-# Let me know if you want this as a downloadable file or want to customize project name, author, or repo
+### Let me know if you want this as a downloadable file or want to customize project name, author, or repo
