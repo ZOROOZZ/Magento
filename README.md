@@ -47,6 +47,13 @@ ELASTICSEARCH_HOST=elasticsearch
 ELASTICSEARCH_PORT=9200
 ```
 ---
+## 4.🚀 Start and Set Up Magento
+### To build and start containers, then run the Magento setup script:
+``` bash
+docker-compose up -d --build
+bash setup.sh
+```
+---
 ### 📁 Directory Structure
 ```bash
 .
@@ -71,4 +78,3 @@ Mehul Saini
 
 ---
 
-### Let me know if you want this as a downloadable file or want to customize project name, author, or repo
