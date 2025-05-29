@@ -59,62 +59,15 @@ ELASTICSEARCH_HOST=elasticsearch
 ELASTICSEARCH_PORT=9200
 ```
 ---
+### 📁 Directory Structure
 ```bash
-3. Make the Setup Script Executable
-bash
-Copy
-Edit
-chmod +x setup.sh
-4. Build and Start Containers
-bash
-Copy
-Edit
-docker-compose up -d --build
-5. Run Magento Setup Script
-bash
-Copy
-Edit
-./setup.sh
-This script:
-
-Installs Magento
-
-Configures composer authentication
-
-Waits for MySQL to be ready
-
-Sets permissions
-
-Disables two-factor authentication
-
-Compiles code and deploys static content
-
-🛠️ Useful Commands
-Access Web Container
-bash
-Copy
-Edit
-docker exec -it web bash
-Restart Services
-bash
-Copy
-Edit
-docker-compose restart
-Stop All Services
-bash
-Copy
-Edit
-docker-compose down
-📁 Directory Structure
-bash
-Copy
-Edit
 .
 ├── Dockerfile
 ├── docker-compose.yml
 ├── setup.sh
 ├── .env
 └── magento-app/       # Magento files will be installed here
+```
 🧾 Notes
 First-time setup requires Magento authentication keys.
 
@@ -125,13 +78,9 @@ Magento will be accessible at: http://localhost/
 🔒 Security Reminder
 Never commit your .env file or Magento keys to a public repository.
 
-👨‍💻 Maintainer
-Your Name
-
-yaml
-Copy
-Edit
+### 👨‍💻 Maintainer
+Mehul Saini
 
 ---
 
-Let me know if you want this as a downloadable file or want to customize project name, author, or repo
+# Let me know if you want this as a downloadable file or want to customize project name, author, or repo
