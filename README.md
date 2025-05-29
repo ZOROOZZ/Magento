@@ -23,6 +23,7 @@ cd Magento
 docker-compose up -d --build
 bash setup.sh
 ---
+```bash
 2. Create and Configure .env File
 Copy the example and edit:
 
