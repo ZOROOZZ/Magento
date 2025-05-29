@@ -43,7 +43,7 @@ ELASTICSEARCH_HOST=elasticsearch
 ELASTICSEARCH_PORT=9200
 ```
 ---
-## 4.🚀 Start and Set Up Magento
+## 3. Start and Set Up Magento
 ### To build and start containers, then run the Magento setup script:
 🧾 Notes
 First-time setup requires Magento authentication keys.
