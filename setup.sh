@@ -39,7 +39,7 @@ required_vars=(
 
 for var in "${required_vars[@]}"; do
   if [ -z "${!var}" ]; then
-    echo "❌ Required variable $var is missing or empty in .env"
+    echo " Required variable $var is missing or empty in .env"
     exit 1
   fi
 done
@@ -54,30 +54,30 @@ else
 fi
 
 # Wait for MySQL in the web container network
-echo "⏳ Waiting for MySQL ($DB_HOST) to be available on port 3306..."
+echo " Waiting for MySQL ($DB_HOST) to be available on port 3306..."
 
 while ! docker exec web bash -c "nc -z $DB_HOST 3306"; do
   echo "Waiting for MySQL..."
   sleep 3
 done
 
-echo "✅ MySQL is available. Proceeding..."
+echo " MySQL is available. Proceeding..."
 
 # Run commands inside the web container
 
 # Configure Composer Authentication
-echo "🔑 Configuring composer authentication inside container..."
+echo " Configuring composer authentication inside container..."
 docker exec web composer config --global http-basic.repo.magento.com "$MAGENTO_PUBLIC_KEY" "$MAGENTO_PRIVATE_KEY"
 
 # Check if Magento is already installed
 if docker exec web test -f /var/www/html/app/etc/env.php; then
-  echo "⚠️ Magento already installed inside container. Skipping installation."
+  echo " Magento already installed inside container. Skipping installation."
 else
-  echo "🚀 Installing Magento inside container..."
+  echo " Installing Magento inside container..."
 
   docker exec web composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition /var/www/html
 
-  echo "⚙️ Running Magento setup install inside container..."
+  echo " Running Magento setup install inside container..."
 
   docker exec web php /var/www/html/bin/magento setup:install \
     --base-url="$BASE_URL" \
@@ -98,31 +98,31 @@ else
     --elasticsearch-host="$ELASTICSEARCH_HOST" \
     --elasticsearch-port="$ELASTICSEARCH_PORT"
 
-  echo "✅ Magento installation complete."
+  echo " Magento installation complete."
 fi
 
-echo "🔧 Setting file permissions inside container..."
+echo " Setting file permissions inside container..."
 docker exec web bash -c "find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +"
 docker exec web bash -c "find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +"
 docker exec web chown -R www-data:www-data /var/www/html
 
-echo "🚫 Disabling Two-Factor Authentication modules..."
+echo " Disabling Two-Factor Authentication modules..."
 docker exec -u www-data -w /var/www/html web php bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth
 docker exec -u www-data -w /var/www/html web php bin/magento module:disable Magento_TwoFactorAuth
-echo "✅ Two-Factor Authentication disabled."
+echo " Two-Factor Authentication disabled."
 
 
-echo "♻️ Cleaning cache and deploying static content inside container..."
+echo " Cleaning cache and deploying static content inside container..."
 docker exec web php /var/www/html/bin/magento cache:clean
 docker exec web php /var/www/html/bin/magento setup:di:compile
 docker exec web php /var/www/html/bin/magento setup:static-content:deploy -f
 
-echo "🎉 Magento setup finished successfully."
-echo "🌐 Fetching Magento Admin URL..."
+echo " Magento setup finished successfully."
+echo " Fetching Magento Admin URL..."
 
 ADMIN_URI=$(docker exec -u www-data -w /var/www/html web php bin/magento info:adminuri 2>/dev/null | grep '^Admin URI:' | awk '{prin>
 if [ -n "$ADMIN_URI" ]; then
-  echo "🔗 Admin Panel URL: ${BASE_URL%/}$ADMIN_URI"
+  echo " Admin Panel URL: ${BASE_URL%/}$ADMIN_URI"
 else
-  echo "⚠️ Could not fetch Admin URI."
+  echo " Could not fetch Admin URI."
 fi
