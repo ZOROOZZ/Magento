@@ -2,10 +2,7 @@ version: '3'
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: php:8.2-apache
+    image: zoroozz/magento-php:8.2-custom
     container_name: web
     restart: always
     ports:
@@ -32,8 +29,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: magento
-    volumes:
-      - db-data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -65,5 +60,4 @@ services:
       - esdata:/usr/share/elasticsearch/data
 
 volumes:
-  db-data:
   esdata:
