@@ -122,7 +122,7 @@ echo " Fetching Magento Admin URL..."
 
 ADMIN_URI=$(docker exec -u www-data -w /var/www/html web php bin/magento info:adminuri 2>/dev/null | grep '^Admin URI:' | awk '{prin>
 if [ -n "$ADMIN_URI" ]; then
-  echo " Admin Panel URL: ${BASE_URL%/}$ADMIN_URI"
+  echo "Admin Panel URL: ${BASE_URL%/}$ADMIN_URI"
 else
-  echo " Could not fetch Admin URI."
+  echo "Could not fetch Admin URI."
 fi
